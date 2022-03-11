@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+>
+
+<body>
+<ui:composition>
+
+    <p:dataTable var="speaker" value="#{speakerView.speakers}" id="speakerTable">
+        <p:column headerText="First Name">
+            <h:outputText value="#{speaker.nameFirst}"/>
+        </p:column>
+        <p:column headerText="Last Name">
+            <h:outputText value="#{speaker.nameLast}"/>
+        </p:column>
+        <p:column headerText="Organization">
+            <h:outputText value="#{speaker.organization}"/>
+        </p:column>
+    </p:dataTable>
+
+    <!-- the action is not necessary the page we navigate to since we don't know the final structure of the application in this fragment
+    We keep it generic like 'addSpeaker' so that we can define JSF navigation rules if needed -->
+    <p:commandButton value="Add" action="addSpeaker"/>
+    <p:commandButton value="Refresh" ajax="false"/> <!-- need a refresh since all changes are performed asynchronous -->
+
+</ui:composition>
+</body>
+</html>
+
+

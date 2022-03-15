@@ -13,19 +13,22 @@
         <div class="p-field p-grid">
             <p:outputLabel for="firstName" styleClass="p-col-12 p-md-2" value="First Name"/>
             <div class="p-col-12 p-md-10">
-                <p:inputText id="firstName" value="#{speakerEditView.speaker.nameFirst}"/>
+                <p:inputText id="firstName" value="#{speakerEditView.speaker.nameFirst}"
+                             required="true" label="First Name"/>
             </div>
         </div>
         <div class="p-field p-grid">
             <p:outputLabel for="lastName" styleClass="p-col-12 p-md-2" value="Last Name"/>
             <div class="p-col-12 p-md-10">
-                <p:inputText id="lastName" value="#{speakerEditView.speaker.nameLast}"/>
+                <p:inputText id="lastName" value="#{speakerEditView.speaker.nameLast}"
+                             required="true" label="Last Name"/>
             </div>
         </div>
         <div class="p-field p-grid">
             <p:outputLabel for="organization" styleClass="p-col-12 p-md-2" value="Organization"/>
             <div class="p-col-12 p-md-10">
-                <p:inputText id="organization" value="#{speakerEditView.speaker.organization}"/>
+                <p:inputText id="organization" value="#{speakerEditView.speaker.organization}"
+                    required="true" label="Organization"/>
             </div>
         </div>
     </div>

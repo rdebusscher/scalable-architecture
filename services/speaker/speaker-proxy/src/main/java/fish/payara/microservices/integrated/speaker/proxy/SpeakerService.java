@@ -53,7 +53,7 @@ public class SpeakerService implements SpeakerServiceProxy {
 
         List<Speaker> matchingSpeaker = search(speaker);
         if (!matchingSpeaker.isEmpty()) {
-            throw new EntityAlreadyExistException();
+            throw new EntityAlreadyExistException(speaker);
         }
         speaker.setId(null); // Make sure this is not set.
         return speakerBackend.add(speaker);
@@ -64,14 +64,14 @@ public class SpeakerService implements SpeakerServiceProxy {
         Optional<Speaker> byId = findById(speaker.getId());
 
         if (byId.isEmpty()) {
-            throw new EntityNotFoundException();
+            throw new EntityNotFoundException(speaker);
         }
 
         List<Speaker> matchingSpeaker = search(speaker);
         if (!matchingSpeaker.isEmpty()) {
             // If a speaker found that matches name and organization but has a different id -> Update to already existing name.
             if (matchingSpeaker.get(0).getId().equals(speaker.getId())) {
-                throw new EntityAlreadyExistException();
+                throw new EntityAlreadyExistException(speaker);
             }
         }
 
@@ -83,7 +83,7 @@ public class SpeakerService implements SpeakerServiceProxy {
         Optional<Speaker> byId = findById(id);
 
         if (byId.isEmpty()) {
-            throw new EntityNotFoundException();
+            throw new EntityNotFoundException("Speaker", id);
         }
 
         speakerBackend.delete(byId.get());

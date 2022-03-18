@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+>
+
+<h:head>
+    <title><ui:insert name="title">Page Title</ui:insert></title>
+    <h:outputStylesheet library="css" name="primeflex.min.css"/>
+
+    <h:outputStylesheet name="common-style.css" library="css"/>
+</h:head>
+
+
+<h:body>
+
+    <div id="page">
+        <h:form>
+            <div class="p-grid">
+                <div class="p-col-12" id="header">
+                    <ui:insert name="header">
+                        <ui:include src="/template/common/commonHeader.xhtml"/>
+                    </ui:insert>
+                </div>
+
+                <div class="p-col-12" id="content">
+                    <p:messages />
+                    <ui:insert name="content">
+                        <ui:include src="/template/common/commonContent.xhtml"/>
+                    </ui:insert>
+                </div>
+
+                <div class="p-col-12" id="footer">
+                    <ui:insert name="footer">
+                        <ui:include src="/template/common/commonFooter.xhtml"/>
+                    </ui:insert>
+                </div>
+            </div>
+        </h:form>
+
+    </div>
+</h:body>
+</html>

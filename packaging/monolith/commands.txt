@@ -1,0 +1,23 @@
+Build
+
+```
+   mvn clean package
+```
+
+
+Run
+
+```
+   java -jar payara-micro.jar <path-to>/packaging/monolith/webapp/target/conference.war
+```
+
+
+End-user
+
+```
+   http://localhost:8080/conference/index.xhtml
+```
+
+
+
+

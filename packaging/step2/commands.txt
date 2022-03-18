@@ -1,0 +1,19 @@
+mvn clean package
+
+
+java -jar payara-micro.jar /Users/rubus/accelerator/integratedMicroservices/packaging/step2/speaker-proxy/target/speaker-proxy.war
+
+
+curl localhost:8080/speaker-proxy/speaker/all
+
+
+
+docker run -d -p 8080:8080 --name speaker-proxy speaker-proxy:1-0
+
+curl localhost:8080/speaker-proxy/speaker/all
+
+docker run -d -p 8880:8080 --name speaker-backend speaker-backend:1-0
+
+java -jar payara-micro.jar --port 8181 /Users/rubus/accelerator/integratedMicroservices/packaging/step2/webapp/target/frontend.war
+
+java '-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:9009' -jar payara-micro.jar --port 8181 /Users/rubus/accelerator/integratedMicroservices/packaging/step1/webapp/target/frontend.war

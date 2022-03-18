@@ -1,0 +1,21 @@
+Build
+
+```
+   mvn clean package
+```
+
+
+Run
+
+```
+   docker run -d -p 8080:8080 --name speaker speaker-service:1.0
+   java -jar payara-micro.jar --port 8181 <path-to>/packaging/step1/webapp/target/frontend.war
+```
+
+
+End-user
+
+```
+   http://localhost:8181/frontend/index.xhtml
+```
+

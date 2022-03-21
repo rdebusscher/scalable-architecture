@@ -24,7 +24,7 @@ public class DatabaseSpeakerBackend implements SpeakerBackend {
         // Store to database
         // TODO implement, not done for this study.
 
-        // Send out event so that read-only database can update themselves.
+        // Send out event so that read-only databases can update themselves.
         event.fireAsync(new CommandEventEntity(speaker, EntityType.ADD));
         return speaker;
     }

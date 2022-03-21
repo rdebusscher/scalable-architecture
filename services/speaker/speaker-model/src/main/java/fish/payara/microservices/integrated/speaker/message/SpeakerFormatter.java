@@ -3,6 +3,10 @@ package fish.payara.microservices.integrated.speaker.message;
 import fish.payara.microservices.integrated.common.messages.EntityMessageFormatter;
 import fish.payara.microservices.integrated.speaker.model.Speaker;
 
+/**
+ * Formats a Speaker Object to String for Error message purposes.  Loaded through ServiceLoader mechanism (configured
+ * in this project through META-INF/services entry.
+ */
 public class SpeakerFormatter implements EntityMessageFormatter {
     @Override
     public boolean supportsEntity(Object entity) {

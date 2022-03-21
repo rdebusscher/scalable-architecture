@@ -5,8 +5,10 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Locale;
 
+/**
+ * Speaker data.
+ */
 public class Speaker implements Serializable {
-
 
     private String id;
     @NotNull

@@ -24,7 +24,7 @@ public class HazelcastSpeakerBackend implements SpeakerBackend {
     @Override
     public Speaker add(Speaker speaker) {
         speaker.setId(UUID.randomUUID().toString());
-        IQueue<Object> queue = hazelcastInstance.getQueue("speaker");
+        IQueue<Object> queue = hazelcastInstance.getQueue(QueueNames.SPEAKER_QUEUE_NAME);
         try {
             queue.put(new CommandEventEntity(speaker, EntityType.ADD));
         } catch (InterruptedException e) {
@@ -37,11 +37,11 @@ public class HazelcastSpeakerBackend implements SpeakerBackend {
 
     @Override
     public void update(Speaker speaker) {
-
+        // FIXME Implement
     }
 
     @Override
     public void delete(Speaker speaker) {
-
+        // FIXME Implement
     }
 }

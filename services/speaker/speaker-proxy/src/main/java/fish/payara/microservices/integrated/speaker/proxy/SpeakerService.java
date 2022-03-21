@@ -14,6 +14,9 @@ import javax.inject.Inject;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Implementation logic of the Speaker Proxy.
+ */
 @ApplicationScoped
 public class SpeakerService implements SpeakerServiceProxy {
 
@@ -27,7 +30,7 @@ public class SpeakerService implements SpeakerServiceProxy {
 
     @PostConstruct
     public void init() {
-        // We always have 1 instance of the SpeakerBackend in the app. But in 1 situation
+        // We always have exactly 1 instance of the SpeakerBackend in the app. But in 1 situation
         // the instance has a qualifier. By selecting it through Instance<SpeakerBackend>
         // we ignore the qualifier.
         speakerBackend = speakerBackendProvider.get();

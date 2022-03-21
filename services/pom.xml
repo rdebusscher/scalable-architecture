@@ -51,7 +51,7 @@
 
     <name>Building blocks</name>
     <inceptionYear>2022</inceptionYear>
-    <description>Building bloks (Services) for the application following the Scalable Architecture</description>
+    <description>Building blocks (Services) for the application following the Scalable Architecture</description>
     <url>https://github.com/rdebusscher/scalable-architecture/services</url>
 
 

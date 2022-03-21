@@ -10,6 +10,10 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.ObservesAsync;
 import javax.inject.Inject;
 
+/**
+ * Class takes the payload of CDI events of type {@code CommandEventEntity} and puts them on a Hazelcast Topic.
+ */
+
 @ApplicationScoped
 public class EventsOutbound {
 
@@ -18,7 +22,7 @@ public class EventsOutbound {
 
     @Inject
     @ConfigProperty(name = "events.outbound.active")
-    private boolean inboundEventActive;
+    private boolean outboundEventActive;
 
     private EventSerializer eventSerializer;
 
@@ -28,8 +32,8 @@ public class EventsOutbound {
         eventSerializer.init();
     }
 
-    public void speakerEvent(@ObservesAsync CommandEventEntity event) {
-        if (inboundEventActive) {
+    public void onEvent(@ObservesAsync CommandEventEntity event) {
+        if (outboundEventActive) {
             ITopic<String> events = hazelcastInstance.getTopic("events");
             events.publish(eventSerializer.generatePayload(event));
         }

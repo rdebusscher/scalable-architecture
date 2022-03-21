@@ -4,6 +4,10 @@ import java.util.List;
 import java.util.ServiceLoader;
 import java.util.stream.Collectors;
 
+/**
+ * Factory that loads all implementations of {@code EntityMessageFormatter} and can select the appropiate one
+ * based on the parameter provided on {@code getEntityIdText} method.
+ */
 public class EntityMessageFormatterFactory {
 
     private static final EntityMessageFormatterFactory FACTORY = new EntityMessageFormatterFactory();

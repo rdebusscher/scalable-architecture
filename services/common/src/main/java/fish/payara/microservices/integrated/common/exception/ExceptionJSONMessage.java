@@ -1,10 +1,14 @@
 package fish.payara.microservices.integrated.common.exception;
 
+/**
+ * Object used for the JSON representation when BusinessException is propgated over Rest.
+ */
 public class ExceptionJSONMessage {
 
     private String exceptionClass;
     private String message;
 
+    // Required for serializaiton.
     public ExceptionJSONMessage() {
     }
 

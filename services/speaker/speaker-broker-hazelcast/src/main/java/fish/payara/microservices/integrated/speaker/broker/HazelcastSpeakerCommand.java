@@ -31,7 +31,7 @@ public class HazelcastSpeakerCommand {
         if (!speakerQueuePumpActive) {
             return;
         }
-        IQueue<CommandEventEntity> queue = hazelcastInstance.getQueue("speaker");
+        IQueue<CommandEventEntity> queue = hazelcastInstance.getQueue(QueueNames.SPEAKER_QUEUE_NAME);
 
         // FIXME ?? How to use ManagedExecutorService on Payara Micro?
         //executor.execute(new QueuePump(queue, speakerBackend));

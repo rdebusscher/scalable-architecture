@@ -2,6 +2,9 @@ package fish.payara.microservices.integrated.common;
 
 import java.io.Serializable;
 
+/**
+ * POJO class used in Queue and Topic scenarios.
+ */
 public class CommandEventEntity implements Serializable {
 // We cannot use a parameterized type in CDI events.
 

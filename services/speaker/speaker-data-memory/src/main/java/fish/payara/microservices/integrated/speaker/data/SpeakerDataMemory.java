@@ -12,6 +12,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+/**
+ * Part of the Speaker Proxy and data s kept in memory here (in general, should be a read-only database).
+ */
 @ApplicationScoped
 public class SpeakerDataMemory implements SpeakerData {
 
@@ -19,6 +22,7 @@ public class SpeakerDataMemory implements SpeakerData {
 
     @PostConstruct
     private void init() {
+        // TODO for testing purposes
         speakers = new ArrayList<>();
         Speaker speaker = new Speaker();
         speaker.setId("X1234");
@@ -40,7 +44,7 @@ public class SpeakerDataMemory implements SpeakerData {
                 .findAny();
     }
 
-    public void speakerEvent(@ObservesAsync /*@SpeakerEntity*/ CommandEventEntity event) {
+    public void speakerEvent(@ObservesAsync CommandEventEntity event) {
         Speaker speaker = (Speaker) event.getEntity();
         switch (event.getEntityType()) {
 

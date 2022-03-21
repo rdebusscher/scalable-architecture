@@ -8,9 +8,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Rest Adapter is needed to qualify the JAX-RS endpoints so that it isn't considered
- * to inject into itself.  See fish.payara.microservices.integrated.speaker.SpeakerResource
- * in step1 and step2 modules of packaging.
+ * Local is needed to distinguish between the CDI bean that implements the Backend implementation from the CDI bean
+ * that forwards to Hazelcast Queue (that is marked with {@code QueueAdapter}).
  */
 @Qualifier
 @Retention(RetentionPolicy.RUNTIME)

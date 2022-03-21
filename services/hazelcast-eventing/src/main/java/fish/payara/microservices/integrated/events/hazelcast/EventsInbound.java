@@ -13,6 +13,9 @@ import javax.enterprise.event.Event;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 
+/**
+ * Class takes messages from the Hazelcast Topic and fire them as CDI event (payload is of type {@code CommandEventEntity})
+ */
 @ApplicationScoped
 public class EventsInbound implements MessageListener<String> {
 
